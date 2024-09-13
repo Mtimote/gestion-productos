@@ -1,0 +1,111 @@
+<div>
+    <h1 class="text-center">Lista Activos</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Tipo</th>
+                        <th>Serial</th>
+                        <th>Numero Interno</th>
+                        <th>Valor compra</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of productos">
+                            <td>{{item.activoNombre}}</td>
+                            <td>{{item.activoDescripcion}}</td>
+                            <td>{{item.activoTipo}}</td>
+                            <td>{{item.activoSerial}}</td>
+                            <td>{{item.activoNumeroInterno}}</td>
+                            <td>{{item.activoValorCompra |number: ".0"}}</td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">account_circle</i>
+              </div>
+              <h4 class="card-title mb-4">Submenus</h4>
+              <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6">
+                  <button class="btn btn-info float-right" >
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Tipo</th>
+                        <th>Serial</th>
+                        <th>Numero Interno</th>
+                        <th>Valor compra</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of productos">
+                            <td>{{item.activoNombre}}</td>
+                            <td>{{item.activoDescripcion}}</td>
+                            <td>{{item.activoTipo}}</td>
+                            <td>{{item.activoSerial}}</td>
+                            <td>{{item.activoNumeroInterno}}</td>
+                            <td>{{item.activoValorCompra |number: ".0"}}</td>
+                      <td class="td-actions text-center">
+                        <button
+                          mat-raised-button
+                          matTooltip="Editar"
+                          matTooltipPosition="above"
+                          type="button"
+                          class="btn btn-warning btn-round btn-fab mr-2"
+                          
+                        >
+                          <span class="btn-label">
+                            <i class="material-icons">edit</i>
+                          </span>
+                        </button>
+                        <button
+                          mat-raised-button
+                          matTooltip="Eliminar"
+                          matTooltipPosition="above"
+                          type="button"
+                          class="btn btn-danger btn-round btn-fab"
+                          
+                        >
+                          <span class="btn-label">
+                            <i class="material-icons">delete</i>
+                          </span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

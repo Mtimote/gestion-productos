@@ -1,0 +1,185 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i></i>
+                        </div>
+                        <h4 class="card-title">
+                            {{titulo}}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="guardar1()" [formGroup]="usuarioService.formulario">
+                            <input type="hidden" class="form-control" id="usuarioId" formControlName="usuarioId"
+                                [(ngModel)]="usuario.usuarioId" name="nombre">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="primerNombre"><b>Primer Nombre :</b></label>
+                                        <input type="text" class="form-control" id="primerNombre"
+                                            formControlName="primerNombre" />
+                                        <div class="alert alert-danger"
+                                            *ngIf="usuarioService.formulario.controls['primerNombre'].invalid && usuarioService.formulario.controls['primerNombre'].dirty ">
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerNombre'].errors?.['required']
+                                                ">
+                                                El campo es requerido
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerNombre'].errors?.['minlength']
+                                                ">
+                                                El campo debe cumplir con minimo 4 carateres
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerNombre'].errors?.['maxlength']
+                                                ">
+                                                El campo debe cumplir con minimo 16 carateres
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="segundoNombre"><b>Segundo Nombre :</b></label>
+                                        <input type="text" class="form-control" id="segundoNombre"
+                                            formControlName="segundoNombre" />
+                                        <div class="alert alert-danger"
+                                            *ngIf="usuarioService.formulario.controls['segundoNombre'].invalid && usuarioService.formulario.controls['segundoNombre'].dirty ">
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['segundoNombre'].errors?.['required']
+                                                ">
+                                                El campo es requerido
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['segundoNombre'].errors?.['minlength']
+                                                ">
+                                                El campo debe cumplir con minimo 4 carateres
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['segundoNombre'].errors?.['maxlength']
+                                                ">
+                                                El campo debe cumplir con minimo 16 carateres
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="primerApellido"><b>Primer Apellido :</b></label>
+                                        <input type="text" class="form-control" id="primerApellido"
+                                            formControlName="primerApellido" />
+                                        <div class="alert alert-danger"
+                                            *ngIf="usuarioService.formulario.controls['primerApellido'].invalid && usuarioService.formulario.controls['primerApellido'].dirty ">
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerApellido'].errors?.['required']
+                                                ">
+                                                El campo es requerido
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerApellido'].errors?.['minlength']
+                                                ">
+                                                El campo debe cumplir con minimo 4 carateres
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerApellido'].errors?.['maxlength']
+                                                ">
+                                                El campo debe cumplir con minimo 16 carateres
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="segundoApellido"><b>Segundo Apellido
+                                                :</b></label>
+                                        <input type="text" class="form-control" id="segundoApellido"
+                                            formControlName="segundoApellido" />
+                                        <div class="alert alert-danger"
+                                            *ngIf="usuarioService.formulario.controls['segundoApellido'].invalid && usuarioService.formulario.controls['segundoApellido'].dirty ">
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['segundoApellido'].errors?.['required']
+                                                ">
+                                                El campo es requerido
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['segundoApellido'].errors?.['minlength']
+                                                ">
+                                                El campo debe cumplir con minimo 4 carateres
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['segundoApellido'].errors?.['maxlength']
+                                                ">
+                                                El campo debe cumplir con minimo 16 carateres
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="docIdentidad"><b>Numero Identificación
+                                                :</b></label>
+                                        <input type="text" class="form-control" id="docIdentidad"
+                                            formControlName="docIdentidad">
+                                        <div class="alert alert-danger"
+                                            *ngIf="usuarioService.formulario.controls['docIdentidad'].invalid && usuarioService.formulario.controls['docIdentidad'].dirty ">
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['docIdentidad'].errors?.['required']
+                                                ">
+                                                El campo es requerido
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['docIdentidad'].errors?.['minlength']
+                                                ">
+                                                El campo debe cumplir con minimo 4 carateres
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['docIdentidad'].errors?.['maxlength']
+                                                ">
+                                                El campo debe cumplir con minimo 10 carateres
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Correo :</b></label>
+                                        <input type="text" class="form-control" id="correo" formControlName="correo">
+                                        <div class="alert alert-danger"
+                                            *ngIf="usuarioService.formulario.controls['correo'].invalid && usuarioService.formulario.controls['correo'].dirty ">
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['correo'].errors?.['required']">
+                                                El campo es requerido
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['correo'].errors?.['pattern']">
+                                                Escriba un valor valido.
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Rol :</b></label>
+                                        <select class="form-control" formControlName="rolId">
+                                          <option *ngFor="let rol of roles, let i = index" [value]="rol.rolId">
+                                            {{ rol.nombre }}
+                                          </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group btn-text-right ">
+                                <button class="btn btn-success btn btn-success float-right ml-3"
+                                    [disabled]="usuarioService.formulario.invalid">Guardar</button>
+                                <!-- <button class="btn btn-danger float-right ml-3" (click)="onClose()">
+                                    Cancelar
+                                </button> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

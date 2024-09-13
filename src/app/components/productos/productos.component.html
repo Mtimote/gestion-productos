@@ -1,0 +1,61 @@
+<mat-card>
+    <div class="container">
+        <div class="card">
+            <div class="card-header card-header-success card-header-icon">
+                <h4 class="card-title mb-4">Lista Activos</h4>
+                <div class="form-group btn-text-right">
+                    <button class="btn btn-success" (click)="crear()">Nuevo Registro</button>
+                </div>
+              </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Tipo</th>
+                        <th>Serial</th>
+                        <th>N° Interno</th>
+                        <th>$ Compra</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of productos">
+                            <td>{{item.activoNombre}}</td>
+                            <td>{{item.activoDescripcion}}</td>
+                            <td>{{item.activoTipo}}</td>
+                            <td>{{item.activoSerial}}</td>
+                            <td>{{item.activoNumeroInterno}}</td>
+                            <td>{{item.activoValorCompra |number: ".0"}}</td>
+                            <td>
+                                <button 
+                                mat-raised-button
+                                matTooltip="Editar"
+                                matTooltipPosition="above"
+                                type="button"
+                                class="btn btn-warning btn-round btn-fab mr-2"
+                                    (click)="editar(item)"><span class="btn-label">
+                                        <i class="material-icons">edit</i>
+                                      </span></button>
+                                <button mat-raised-button
+                                matTooltip="Eliminar"
+                                matTooltipPosition="above"
+                                type="button"
+                                class="btn btn-danger btn-round btn-fab" (click)="eliminar(item)" ><span class="btn-label">
+                                    <i class="material-icons">delete</i>
+                                  </span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <mat-paginator 
+       [pageSizeOptions]="[5, 10, 25, 100]" 
+       [pageSize]="size" 
+       [length]="totalElements"
+       (page)="cambioPagina($event)" 
+       showFirstLastButtons="true"
+    >
+    </mat-paginator>
+</mat-card>

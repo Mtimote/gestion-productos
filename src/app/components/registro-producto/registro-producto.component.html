@@ -1,0 +1,112 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i></i>
+                        </div>
+                        <h4 class="card-title">
+                            {{titulo}}
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="guardar1()" [formGroup]="productosService.formulario">
+                            <input type="hidden" class="form-control" id="activoId" formControlName="activoId"
+                                [(ngModel)]="producto.activoId" name="nombre">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="activoNombre"><b>Nombre :</b></label>
+                                        <input type="text" class="form-control" id="activoNombre"
+                                            formControlName="activoNombre"/>
+                                            <div class="alert alert-danger" *ngIf="productosService.formulario.controls['activoNombre'].invalid && productosService.formulario.controls['activoNombre'].dirty ">
+                                                <div *ngIf="
+                                                productosService.formulario.controls['activoNombre'].errors?.['required']
+                                                ">
+                                                El campo es requerido
+                                                </div>
+                                                <div *ngIf="
+                                                productosService.formulario.controls['activoNombre'].errors?.['minlength']
+                                                ">
+                                                El campo debe cumplir con minimo 4 carateres
+                                                </div>
+                                                <div *ngIf="
+                                                productosService.formulario.controls['activoNombre'].errors?.['maxlength']
+                                                ">
+                                                El campo debe cumplir con minimo 40 carateres
+                                                </div>
+
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Descripcion :</b></label>
+                                        <input type="text" class="form-control" id="activoDescripcion"
+                                            formControlName="activoDescripcion"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="activoTipo"><b>Tipo :</b></label>
+                                        <input type="text" class="form-control" id="activoTipo"
+                                            formControlName="activoTipo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Serial :</b></label>
+                                        <input type="text" class="form-control" id="activoSerial"
+                                            formControlName="activoSerial">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="activoNumeroInterno"><b>Numero Interno
+                                                :</b></label>
+                                        <input type="text" class="form-control" id="activoNumeroInterno"
+                                            formControlName="activoNumeroInterno">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Peso :</b></label>
+                                        <input type="text" class="form-control" id="activoPeso"
+                                            formControlName="activoPeso">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="activoAlto"><b>Alto :</b></label>
+                                        <input type="text" class="form-control" id="activoAlto"
+                                            formControlName="activoAlto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Ancho :</b></label>
+                                        <input type="text" class="form-control" id="activoAncho"
+                                            formControlName="activoAncho">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="activoLargo"><b>Largo :</b></label>
+                                        <input type="number" class="form-control" id="activoLargo"
+                                            formControlName="activoLargo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Valor Compra :</b></label>
+                                        <input type="number" class="form-control" id="activoValorCompra"
+                                            formControlName="activoValorCompra">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label class="form-label" for="activoFechaCompra"><b>Fecha Compra :</b></label>
+                                        <input type="text" class="form-control" id="activoFechaCompra"
+                                            formControlName="activoFechaCompra">
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="form-group btn-text-right ">
+                                <button class="btn btn-success" [disabled]="productosService.formulario.invalid">Guardar</button>
+                                <button class="btn btn-danger float-right ml-3" (click)="onClose()">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
