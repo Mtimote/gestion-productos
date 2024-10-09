@@ -1,0 +1,43 @@
+.button-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  #btnRegis {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: cadetblue;
+    border-color: cadetblue;
+    text-align: center;
+    border-radius: 20px;
+  }
+  
+  #btnRegis:hover {
+    background-color: rgb(58, 169, 173);
+    border-color: rgb(58, 169, 173);
+  }
+
+  header {
+    background: url(https://cdn.pixabay.com/photo/2020/05/07/04/01/digitization-5140071_1280.jpg)
+}
+
+.custom-card-bg {
+  background: url('https://cdn.pixabay.com/photo/2020/05/07/04/01/digitization-5140071_1280.jpg');
+  background-size: cover;
+  color: white; /* Para asegurar que el texto sea legible */
+  border-radius: 25px;
+}

@@ -12,7 +12,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form (ngSubmit)="guardar1()" [formGroup]="productosService.formulario">
+                        <form (ngSubmit)="guardar()" [formGroup]="productosService.formulario">
                             <input type="hidden" class="form-control" id="activoId" formControlName="activoId"
                                 [(ngModel)]="producto.activoId" name="nombre">
                             <div class="row">

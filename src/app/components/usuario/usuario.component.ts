@@ -26,65 +26,54 @@ export class UsuarioComponent implements OnInit {
     console.log(this.roles);
   }
 
-  guardar() {
-    this.usuarioService.formulario.reset();
-    this.usuarioService.iniciaForm();
-    this.router.navigateByUrl('/guardar-usuario/0');
-  }
-
+  //metodo que nos permite obtener los roles creados en la DB.
   lisRoles() {
     this.usuarioService.listaRoles().subscribe((list) => {
       this.roles = list;
     });
   }
 
-
-  guardar1() {
+  //metodo que nos permite realizar el guardado de un usuario en DB,  mediante el api.
+  guardar() {
     this.usuarioService.formulario.disable();
-    //if (this.usuarioService.formulario.get('usuarioId').value <= 0) {
       const observer = {
         next: (result: any) => {
+          console.log("result usuario ->>")
+          console.log(result)
             Swal.fire({
                 icon: 'success',
                 title: 'Creación',
-                text: 'Usuario registrado exitosamente',
+                //text: 'Usuario registrado exitosamente',
+                text: result.message,
+                //text: result['message'],
             });
             //this.onClear();
         },
-        error: (result: any) => {
+        error: (error: any) => {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: result.error.message,
+                text: error.message,
             });
             this.usuarioService.formulario.enable();
         },
         complete: () => {
-            // Puedes agregar cualquier lógica adicional que necesites cuando la suscripción se complete
+          this.onClear();
         }
     };
-        this.usuarioService.guardarUsuario().subscribe(observer);
+    
+    this.usuarioService.guardarUsuario().subscribe(observer);
       
-    // } else {
-    //   this.usuarioService.actualizar().subscribe(
-    //     (result: any) => {
-    //       Swal.fire({
-    //         icon: 'success',
-    //         title: 'Actualización',
-    //         text: 'Usuario actualizado exitosamente',
-    //       });
-    //       this.onClear();
-    //     },
-    //     (result) => {
-    //       Swal.fire({
-    //         icon: 'error',
-    //         title: 'Error',
-    //         text: result.error.message,
-    //       });
-    //       this.usuarioService.formulario.enable();
-    //     }
-    //   );
-    // }
+  }
+
+  onClose() {
+    this.onClear();
+  }
+
+  onClear() {
+    this.usuarioService.formulario.reset();
+    this.usuarioService.iniciaForm();
+    this.router.navigateByUrl('/productos');
   }
 
 }

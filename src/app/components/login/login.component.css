@@ -1,0 +1,35 @@
+.card-login {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 25px; /* Ajusta el valor para hacer los bordes más o menos redondeados */
+    overflow: hidden;
+  }
+
+.card-header {
+    background-color:cadetblue;
+    padding: 20px;
+  }
+  
+  .btn-success {
+    background-color: cadetblue;
+    border-color: cadetblue;
+    text-align: center;
+    border-radius: 25px;
+  }
+  .btn-success:hover {
+    background-color: rgb(58, 169, 173);
+    border-color: rgb(58, 169, 173);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  #username, #password {
+    border-radius: 25px; /* Ajusta el valor para hacer los bordes más o menos redondeados */
+    padding: 10px; /* Añade un poco de padding para mejorar la apariencia */
+    border: 1px solid #ccc; /* Añade un borde para que se vea mejor */
+  }
+
+  .icon-rounded {
+    border-radius: 25px; /* Ajusta el valor para hacer los bordes más o menos redondeados */
+  }
