@@ -1,19 +1,53 @@
-<div>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a routerLink="productos" routerLinkActive class="nav-link">Lista Productos</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="registro-producto" routerLinkActive class="nav-link">Agregar Producto</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="usuario" routerLinkActive class="nav-link">Agregar Usuario</a>
-      </li>
-    </ul>
-  </nav>
-  <h4 class="text-center">{{title}}</h4>
-  <div class="container">
-    <router-outlet></router-outlet>
+<body>
+<header class="jumbotron css-jumbotron bg-cover text-white">
+  <div class="container py-1 text-center">
+    <h1 class="display-4 font-weight-bold">Gestión Productos</h1>
+    <p class="font-italic mb-0">Tu mejor decición</p>
   </div>
+</header>
+<div>
+  <app-nav></app-nav>
 </div>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<br>
+
+<footer class="jumbotron">
+  <div class="text-center text-white">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 mt-2">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+            distinctio earum repellat quaerat voluptatibus placeat nam,
+            commodi optio pariatur est quia magnam eum harum corrupti
+            dicta, aliquam sequi voluptate quas.
+          </p>
+        </div>
+      </div>
+      <div class="text-center mb-2">
+        <a href="" class="text-white me-4">
+          <i class="fa fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fa fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fa fa-github"></i>
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+</body>

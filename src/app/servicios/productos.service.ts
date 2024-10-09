@@ -34,10 +34,10 @@ export class ProductosService {
     );
   }
 
-  registrarProducto(producto:Productos):Observable<Object>{
-    let url = this.urlg + "/crear/";
-    return this.http.post(url,producto);
-  }
+  // registrarProducto(producto:Productos):Observable<Object>{
+  //   let url = this.urlg + "/crear/";
+  //   return this.http.post(url,producto);
+  // }
 
   detalle(activoId: number): Observable<Productos> {
     //let url = `${environment.urlApi}${this.path}/find/${activoId}`;
@@ -46,20 +46,20 @@ export class ProductosService {
     return this.http.get<Productos>(url);
   }
 
-  crear() {
-    let itemToCreate: Productos = Object.assign({}, this.formulario.value);
-    //let url = `${environment.urlApi}${this.path}/crear`;
-    let url = this.urlg + "/crear/";
-    console.log(itemToCreate);
-    return this.http.post(url, itemToCreate);
-  }
+  // crear() {
+  //   let itemToCreate: Productos = Object.assign({}, this.formulario.value);
+  //   //let url = `${environment.urlApi}${this.path}/crear`;
+  //   let url = this.urlg + "/crear/";
+  //   console.log(itemToCreate);
+  //   return this.http.post(url, itemToCreate);
+  // }
 
-  actualizar(): Observable<any> {
+  actualizar() {
     let itemToEdit: Productos = Object.assign({}, this.formulario.value);
-    let url = this.urlg + "/actualizar/" + itemToEdit.activoId;
+    let url = this.urlg;
     console.log(url);
     //let url = `${environment.urlApi}${this.path}/actualizar/${itemToEdit.activoId}`;
-    return this.http.put(url, itemToEdit);
+    return this.http.post(url, itemToEdit);
   }
 
   eliminarproducto(activoId:number):Observable<Object> {

@@ -14,7 +14,7 @@ import { MatPaginator } from '@angular/material/paginator'
 export class ProductosComponent implements OnInit {
 
   productos: Productos [];
-  size: number = 10;
+  size: number = 5;
   search: string = 'null';
   pages: number[] = [];
   page: number = 0;
@@ -26,29 +26,14 @@ export class ProductosComponent implements OnInit {
   constructor(private productosService:ProductosService, private router:Router) { }
 
   ngOnInit(): void {
-    this.obtenerCuentasPagarCobrar();
-    // this.obtenerProductos();
-    // this.paginationService.paginationEvent.subscribe((page) => {
-    //   this.page = page;
-    //   this.obtenerProductos();
-    // });
+    this.obtenerProductosPaginado();
   }
 
+  //metodo que permite obtener una lista de los productos.
   private lista() {this.productosService.listarProductos1().subscribe(list => {
     this.productos = list;
     console.log(list);
   });
-  }
-
-  obtenerProductos() {
-    this.productos = [];
-    //this.accionRolModal = 'CREACIÓN';
-    this.productosService
-      .listarPaginado(this.page, this.size)
-      .subscribe((list) => {
-        this.productos = list.content;
-        this.pages = new Array(list.totalPages);
-      });
   }
 
   crear() {
@@ -93,30 +78,22 @@ export class ProductosComponent implements OnInit {
     }))
   }
 
+  //metodo que nos permite validar el cambio de pagina para visualizar los productos.
   cambioPagina(event: PageEvent) {
     console.log("event ->");
     console.log(event);
     this.page = event.pageIndex;
     this.size = event.pageSize;
-    // if (this.indexTab == 0) {
-    //   this.obtenerCuentasPagarCobrar();
-    // } else {
-    //   this.obtenerCuentasPagarCobrar();
-    // }
-    this.obtenerCuentasPagarCobrar();
+    this.obtenerProductosPaginado();
   }
-
-    obtenerCuentasPagarCobrar() {
+  
+  //metodo que permite obtener la lista de productos de manera paginada.
+  obtenerProductosPaginado() {
       console.log(this.page);
       console.log(this.size);
       this.productos = [];
       this.productosService
       .listarPaginado(this.page, this.size).subscribe((result) => {
-        // console.log("result ->");
-        // console.log(result);
-          // this.productos = result['listPage']['content'];
-          // this.totalElements = result['listPage']['totalElements'];
-          // this.pages = new Array(result['listPage']['totalPages']);
           this.productos = this.productos = result.content;
           this.totalElements = result.totalElements;
           this.pages = new Array(result.totalPages);

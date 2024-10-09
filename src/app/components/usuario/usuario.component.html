@@ -12,7 +12,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form (ngSubmit)="guardar1()" [formGroup]="usuarioService.formulario">
+                        <form (ngSubmit)="guardar()" [formGroup]="usuarioService.formulario">
                             <input type="hidden" class="form-control" id="usuarioId" formControlName="usuarioId"
                                 [(ngModel)]="usuario.usuarioId" name="nombre">
                             <div class="row">
@@ -37,6 +37,11 @@
                                                 usuarioService.formulario.controls['primerNombre'].errors?.['maxlength']
                                                 ">
                                                 El campo debe cumplir con minimo 16 carateres
+                                            </div>
+                                            <div *ngIf="
+                                                usuarioService.formulario.controls['primerNombre'].errors?.['pattern']
+                                                ">
+                                                El campo no cumple con el formato de nombre
                                             </div>
 
                                         </div>
@@ -170,11 +175,10 @@
 
                             </div>
                             <div class="form-group btn-text-right ">
-                                <button class="btn btn-success btn btn-success float-right ml-3"
-                                    [disabled]="usuarioService.formulario.invalid">Guardar</button>
-                                <!-- <button class="btn btn-danger float-right ml-3" (click)="onClose()">
+                                <button class="btn btn-success float-right ml-3" [disabled]="usuarioService.formulario.invalid">Guardar</button>
+                                <button class="btn btn-danger float-right ml-3" (click)="onClose()">
                                     Cancelar
-                                </button> -->
+                                </button>
                             </div>
                         </form>
                     </div>

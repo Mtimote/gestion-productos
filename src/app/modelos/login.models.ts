@@ -1,6 +1,6 @@
 export class Login {
 
-    correo : string;
+    username : string;
     contraseña: string;
     
 }

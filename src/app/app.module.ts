@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,16 +10,21 @@ import { MatCardModule } from '@angular/material/card';
 import { MaterialAppModule } from './material/material.module';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { LoginComponent } from './componentes/login/login.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './components/guard/auth.interceptor';
+import { NavComponent } from './components/nav/nav.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
     RegistroProductoComponent,
-    UsuarioComponent
-    // LoginComponent,
+    UsuarioComponent,
+    LoginComponent,
+    NavComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,10 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     MatIconModule,
     BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  //providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

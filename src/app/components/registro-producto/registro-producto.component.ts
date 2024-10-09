@@ -54,7 +54,8 @@ export class RegistroProductoComponent implements OnInit {
   //   },error => console.log(error));
   // }
 
-  guardar1(){
+  //metodo que permite enviar un documento a guardar mediante el api.
+  guardar(){
     if (this.activoId != 0) {
       console.log("activoId -> " + this.activoId)
       this.actualizarProducto();
@@ -63,57 +64,58 @@ export class RegistroProductoComponent implements OnInit {
     }
   }
 
-  registroProducto1(){
-    this.productosService.crear().subscribe(
-      (result: any) => {
-        console.log(result)       
-        this.router.navigate(['/productos']);
-      },error => console.log(error));
+  registroProducto() {
+    this.productosService.formulario.disable();
+      const observer = {
+        next: (result: any) => {
+          console.log("result usuario ->>")
+          console.log(result)
+            Swal.fire({
+                icon: 'success',
+                title: 'Creación',
+                text: result.message,
+            });
+        },
+        error: (error: any) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error.message,
+            });
+            this.productosService.formulario.enable();
+        },
+        complete: () => {
+          this.onClear();
+        }
+    };   
+    this.productosService.crear1().subscribe(observer);
   }
 
-  registroProducto(){
-    this.productosService.crear1().subscribe(
-      (result: any) => {
-        console.log(result);
-        Swal.fire({
-          icon:'success',
-          title:'Creacion',
-          text:'Se realizo la creacion del registro exitosamente'
-        });
-        this.router.navigate(['/productos']);
-      },
-      (result) => {
-        console.log(result);
-        Swal.fire({
-          icon:'error',
-          title:'Error',
-          text: result.error.message,
-        });
-      }
-    );
-  }
-
-  
-
-  actualizarProducto(){
-    this.productosService.actualizar().subscribe(
-      (result: any) => {
-        console.log(result);
-        Swal.fire({
-          icon:'success',
-          title:'Actualizacion',
-          text:'Registro actualizado exitosamente',
-        });
-        this.router.navigate(['/productos']);
-      },
-      (result) =>{
-        Swal.fire({
-          icon:'error',
-          title:'Error',
-          text: result.error.message,
-        });
-      }
-    );
+  actualizarProducto() {
+    this.productosService.formulario.disable();
+      const observer = {
+        next: (result: any) => {
+          console.log("result usuario ->>")
+          console.log(result)
+            Swal.fire({
+                icon: 'success',
+                title: 'Creación',
+                text: result.message,
+            });
+        },
+        error: (error: any) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error.message,
+            });
+            this.productosService.formulario.enable();
+        },
+        complete: () => {
+          this.onClear();
+        }
+    };   
+    this.productosService.actualizar().subscribe(observer);
   }
 
   direccionarLista(){
@@ -129,5 +131,56 @@ export class RegistroProductoComponent implements OnInit {
     this.productosService.iniciarFomulario();
     this.router.navigateByUrl('/productos');
   }
+
+    // registroProducto1(){
+  //   this.productosService.crear().subscribe(
+  //     (result: any) => {
+  //       console.log(result)       
+  //       this.router.navigate(['/productos']);
+  //     },error => console.log(error));
+  // }
+
+  // registroProducto(){
+  //   this.productosService.crear1().subscribe(
+  //     (result: any) => {
+  //       console.log(result);
+  //       Swal.fire({
+  //         icon:'success',
+  //         title:'Creacion',
+  //         text:'Se realizo la creacion del registro exitosamente'
+  //       });
+  //       this.router.navigate(['/productos']);
+  //     },
+  //     (result) => {
+  //       console.log(result);
+  //       Swal.fire({
+  //         icon:'error',
+  //         title:'Error',
+  //         text: result.error.message,
+  //       });
+  //     }
+  //   );
+  // }
+
+  // actualizarProducto(){
+  //   this.productosService.actualizar().subscribe(
+  //     (result: any) => {
+  //       console.log(result);
+  //       Swal.fire({
+  //         icon:'success',
+  //         title:'Actualizacion',
+  //         text:'Registro actualizado exitosamente',
+  //       });
+  //       this.router.navigate(['/productos']);
+  //     },
+  //     (result) =>{
+  //       Swal.fire({
+  //         icon:'error',
+  //         title:'Error',
+  //         text: result.error.message,
+  //       });
+  //     }
+  //   );
+  // }
 
 }

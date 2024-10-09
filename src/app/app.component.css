@@ -1,0 +1,35 @@
+header {
+    background: url(https://cdn.pixabay.com/photo/2020/05/07/04/01/digitization-5140071_1280.jpg)
+}
+footer {
+    background-color: black;
+}
+.css-jumbotron {
+    height: 120px; /* Ajusta este valor según tus necesidades */
+    padding: 12px; /* Ajusta el padding si es necesario */
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    min-height: calc(100vh - 50px); /* Ajusta 50px al tamaño deseado del footer */
+    padding-bottom: 50px; /* Espacio para el footer */
+}
+
+.footer {
+    height: 50px; /* Altura del footer */
+    background-color: #f1f1f1; /* Color de fondo del footer */
+    text-align: center; /* Centrar el texto */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+  

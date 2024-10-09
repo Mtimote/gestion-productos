@@ -32,7 +32,7 @@ export class UsuarioService {
     ]),
     docIdentidad: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_]*$'),]),
     correo: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'),]),
-    rolId: new FormControl(''),
+    rolId: new FormControl(0),
   });
 
   guardarUsuario() {
@@ -51,7 +51,7 @@ export class UsuarioService {
       segundoApellido: '',
       docIdentidad: '',
       correo: '',
-      idRol: '',
+      rolId: 0,
     });
   }
   
